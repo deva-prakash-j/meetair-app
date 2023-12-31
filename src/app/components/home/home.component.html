@@ -1,0 +1,65 @@
+<div class="home-container">
+    <div class="style-1">
+
+        <!-- Outer Row -->
+        <div class="style-2">
+
+            <div class="style-3">
+
+                <div class="style-4">
+                    <div class="style-5">
+                        <!-- Nested Row within Card Body -->
+                        <div class="style-6">
+                            <div class="style-7" [ngClass]="mode == 'join'? 'join-img' : 'host-img'"></div>
+                            <div class="style-8">
+                                <div class="style-9">
+                                    <div class="style-10">
+                                        <div class="style-11">
+                                            <img src="../../assets/imgs/logo.png" class="style-12" />
+                                        </div>
+                                        <a href="https://meetair.spagreen.net/demo/php/" class="style-14">
+                                            <h1 class="style-15">AirMeet</h1>
+                                        </a>
+                                    </div> <!-- error/success message -->
+                                    <div *ngIf="errorMsg && errorMsg.length > 0" class="err-container">
+                                      <button type="button" class="err-cls-btn" (click)="closeError()">
+                                          ×
+                                      </button>
+                                      {{errorMsg}}
+                                    </div>
+                                    <!-- error/success message End-->
+                                    <ul class="style-16" role="tablist">
+                                        <li class="action-tab">
+                                            <a [ngClass]="{'selected-tab': mode == 'join'}" href="#join" role="tab" (click)="updateMode('join')">Join Meeting</a>
+                                        </li>
+                                        <li class="action-tab">
+                                            <a [ngClass]="{'selected-tab selected-tab-right': mode == 'host'}" href="#host" role="tab" (click)="updateMode('host')">Host Meeting</a>
+                                        </li>
+                                    </ul>
+                                    <div class="style-21">
+                                        <div class="style-27">
+                                            <form class="style-28" [formGroup]="joinForm" (ngSubmit)="onSubmit(joinForm)">
+                                                <div class="style-29">
+                                                    <input type="text" formControlName="name" name="meeting_title" value="" class="style-30" placeholder="Enter Meeting Title(optional)" [attr.disabled]="mode === 'join' ? true : null"/>
+                                                </div>
+                                                <div class="style-31">
+                                                    <input type="text" formControlName="meetingId" name="meeting_code" class="style-32" placeholder="Enter Meeting ID" />
+                                                    <div class="style-33"></div>
+                                                </div> <button type="submit" class="style-34">{{mode == 'join' ? 'Join Now' : 'Create & Join Now'}}</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <hr class="style-35" />
+                                    <div class="style-36">
+                                        <a class="style-37" routerLink="/signin">Login</a> |
+                                        <a class="style-38" href="/signup">Signup</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
